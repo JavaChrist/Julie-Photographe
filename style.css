@@ -1,0 +1,429 @@
+body {
+    background:  #d9c5b8 ;
+    height: 100vh; 
+    font-family: 'Pathway Gothic One', sans-serif;
+    margin: 0;
+}
+
+#logo-container {
+    position: absolute;
+    top: 20px; /* Ajustez la position verticale selon vos besoins */
+    left: 20px; /* Ajustez la position horizontale selon vos besoins */
+
+}
+
+.logo {
+    position: absolute; /* Position absolue pour que le logo ne pousse pas le contenu vers le bas */
+    top: 10px; /* Ajustez cette valeur pour positionner le logo */
+    left: 10px; /* Ajustez cette valeur pour positionner le logo */
+    width: 138px;
+    height: 138px;
+    font-weight: 500;
+    font-size: 1rem;
+    z-index: 1001; /* Assurez-vous que le logo est au-dessus du carrousel */
+}
+
+.logo span{
+    position: absolute;
+    left: 90px;
+    transform-origin: 0 100px;
+    color: white;
+}
+
+.logo p {
+    position:relative;
+    left: 150px;
+    top: 25px;
+    transform: translate(-50%, 50%);
+   font-size: 1.5rem;
+   color: white;
+}
+
+
+.carousel {
+    position: relative;
+    width: 100%;    
+    height: 100vh; /* Assure que le carrousel prend toute la hauteur de la fenêtre */
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden; /* Cache les parties des images qui débordent */
+}
+
+.carousel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;                         
+    height: 100%; /* Assure que les images prennent toute la hauteur du carrousel */  
+    object-fit: contain; /* Assure que l'image couvre tout le conteneur sans déformer */
+    opacity: 0; /* Commence avec une opacité de 0 */
+    transition: opacity 0.2s ease-in-out; /* Transition d'opacité sur 0.5 secondes */
+}
+
+.carousel img.active {
+    opacity: 1; /* Rend l'image active complètement opaque */
+    display: block; /* Assure que l'image active est affichée */
+}
+
+/* Styles pour la barre de navigation */
+nav {
+    position: fixed;
+    width: 600px; 
+    height: 100vh;
+    background: #e7d1c3; 
+    right: 0; 
+    top: 0; 
+    z-index: 1000;
+}
+
+
+
+/* Styles pour les éléments de liste dans la barre de navigation */
+#navbar li {
+    margin-right: 30px;
+}
+
+/* Styles pour le menu */
+.menu {
+    margin-top: 200px;
+    text-align: right; 
+    font-size: 26px; 
+    font-weight: 100;
+    margin-right: 50px;
+}
+
+
+.menu a {
+    position: relative;
+    display: inline-block;
+    color: inherit; /* Conserve la couleur du texte */
+    text-decoration: none; /* Supprime la décoration par défaut des liens */
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    top: 50%; /* Place le trait au milieu verticalement */
+    right: 0; /* Commence le trait à droite */
+    width: 0;
+    height: 2px; /* Épaisseur du trait */
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+    transform: translateY(-50%); 
+}
+
+.menu a:hover::after {
+    width: 30px;
+}
+
+.items {
+    position: relative;
+}
+
+/* Styles pour le trait */
+.trait {
+    position: absolute;
+    top: 50%; /* Ajustez cette valeur pour aligner verticalement */
+    right: -120px; /* Commence au bord droit de l'écran */
+    width: 40px;
+    height: 2px; /* Épaisseur du trait */
+    background-color: white;
+    transition: width 2s ease-in-out, right 1s ease-in-out;
+    z-index: 1000; /* Assurez-vous que le trait est au-dessus des autres éléments */
+}
+
+/* Animation pour le trait */
+.items:hover .trait {
+    right: -65px; /* Le trait se déplace vers la gauche */
+}
+
+/* Styles pour la sous-liste de la galerie */
+.sous-liste-galerie {
+    position: absolute;
+    left: -30px; /* Positionne les sous-listes à gauche */
+    top: 0;
+    width: 300px;
+    background: #e7d1c3;
+    display: none; /* Cache les sous-listes par défaut */
+    z-index: 1000; /* Assure que les sous-listes sont au-dessus des autres éléments */
+}
+
+/* Styles pour la sous-liste des tarifs */
+.sous-liste-tarifs {
+    position: absolute;
+    left: -30px; /* Positionne les sous-listes à gauche */
+    top: 10px;
+    width: 300px;
+    background: #e7d1c3;
+    display: none; /* Cache les sous-listes par défaut */
+    z-index: 1000; /* Assure que les sous-listes sont au-dessus des autres éléments */
+}
+
+/* Affiche les sous-listes au survol des éléments de la liste ou des sous-listes elles-mêmes */
+    .items:hover .sous-liste-galerie,
+    .items:hover .sous-liste-tarifs, 
+    .sous-liste-galerie:hover,
+    .sous-liste-tarifs:hover { 
+    display: block; /* Affiche les sous-listes */
+}
+
+/* Styles pour les éléments de texte de la liste */
+.txt-liste span {
+    cursor: pointer; /* Change le curseur en main au survol */
+}
+
+/* Styles pour les éléments de la liste */
+.liste-items {
+    padding: 15px 0; /* Ajoute un espacement vertical de 15px */
+    font-size: 20px; /* Définit la taille de la police à 15px */
+} 
+
+/* Styles pour les listes non ordonnées */
+ul {
+    list-style-type: none; /* Supprime les puces de la liste */
+    color: white; /* Définit la couleur du texte à blanc */
+    position: relative;
+}
+
+/* Supprime la décoration de texte et définit la couleur du texte à blanc */
+a { 
+    text-decoration: none;
+    color: white;
+}
+
+/* Styles pour les icônes hamburger et de fermeture */
+.hamburger, .close {
+    position: fixed; /* Positionne les icônes de manière absolue par rapport à leur conteneur */
+    top: 20px; /* Positionne les icônes à 20px du haut de la navbar */
+    right: 30px; /* Positionne les icônes à 30px de la droite de la navbar */
+    color: white; /* Définit la couleur des icônes à blanc */
+    font-size: 30px; /* Définit la taille des icônes à 30px */
+    padding: 20px; /* Ajoute un espacement de 20px autour des icônes */
+    cursor: pointer; /* Change le curseur en main au survol des icônes */
+    z-index: 1001; /* Assure que les icônes sont au-dessus des autres éléments */
+}
+
+/* Styles pour les icônes sociales */
+.social-icons {
+    position: absolute; /* Positionne les icônes de manière absolue par rapport à la navbar */
+    bottom: 30px; /* Positionne les icônes à 30px du bas de la navbar */
+    width: 100%; /* Assure que les icônes sont centrées horizontalement */
+    display: flex; /* Utilise le modèle de boîte flexible pour aligner les icônes */
+    justify-content: space-evenly; /* Centre les icônes horizontalement */
+}
+
+/* Styles pour les liens à l'intérieur des icônes sociales */
+.social-icons a {
+    color: #fff; /* Définit la couleur des liens à blanc */
+    font-size: 15px; /* Définit la taille de la police des liens à 15px */
+    margin: 0 10px; /* Ajoute un espacement horizontal entre les icônes */
+}
+
+/* Style pour la section */
+.section {
+    background-color: white;
+    color:rgb(95, 92, 91);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 100;
+    padding: 30px 100px;
+
+}
+
+.section-paragraph {
+    margin: 20px 40px;
+    font-size: 15px;
+    text-align: center;
+    font-size: 100;
+    padding: 0 20px;
+    line-height: 2;
+    letter-spacing: 0.1em;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 400;
+    color: black;
+}
+
+.section-subtitle {
+    font-size: 15px;
+    line-height: 2;
+    letter-spacing: 0.1em;
+    color:rgb(95, 92, 91);
+    font-weight: 100;
+}
+
+/* Syle pour la ligne */
+.custom-hr {
+    width: 100%; 
+    border-top: 1px solid rgb(95, 92, 91);
+    margin: 70px 30px; 
+
+}
+
+.section-image {
+    background-color: white;
+    margin-top: -500px;
+}
+
+/* Style pour container image */
+.image-container, .image-container2 {
+    position: relative;
+    width: 850px;
+    height: 650px;
+    margin: 0 auto; /* Centre le conteneur horizontalement */
+    margin-left: 100px;
+}
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Assure que l'image couvre tout le conteneur sans déformation */
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    right: -28%;
+    transform: translateY(-50%);
+    background-color: white;
+    padding: 20px;
+    width: 350px;
+    height: 250px;
+    font-family: "Open Sans", sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Centre le texte à l'intérieur des éléments */
+}
+
+
+.overlay-title {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: rgb(95, 92, 91);
+}
+
+.overlay-text {
+    font-size: 16px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    line-height: 2;
+    letter-spacing: 0.1em;
+}
+
+.overlay-button {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+.overlay-button:hover {
+    background-color: black;
+    color: white;  
+}
+
+.section-commentaire {
+    background-color: #fff;
+    color: rgb(95, 92, 91);
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    line-height: 2;
+    letter-spacing: 0.1em;
+    font-weight: 100;
+    padding: 100px 100px;
+}    
+
+.custom-hr-avant-fin {
+    border: none;
+    border-top: 1px solid rgb(95, 92, 91); /* Trait fin noir */
+    margin: 0 30px ; /* 30px avant les bords */
+    background-color: white; /* Fond blanc */
+}
+
+.section-actualite {
+    background-color: #fff;
+    color: rgb(95, 92, 91);
+    height: 180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    line-height: 2;
+    letter-spacing: 0.1em;
+    padding: 30px 0px;
+}
+
+.photos-left, .photos-right {
+    display: flex;
+    flex-direction: row; /* Change to row for horizontal alignment */
+    justify-content: space-between; 
+    gap: 10px; /* Espace entre les photos */
+}
+
+.photos-left img, .photos-right img {
+    width: 165px;
+    height: 165px;
+    object-fit: cover; /* Pour s'assurer que les images remplissent bien les dimensions */
+}
+
+.text-center {
+    flex: 1;
+    text-align: center;
+    padding: 0 20px; /* Espace entre le texte et les photos */
+}
+.custom-hr-fin {
+    border: none;
+    border-top: 1px solid rgb(95, 92, 91); /* Trait fin noir */
+    margin: 0 30px ; /* 30px avant les bords */
+    background-color: white; /* Fond blanc */
+}
+
+/* Style pour le footer */
+.footer {
+    background-color:white;
+    color: rgb(95, 92, 91);;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    line-height: 2;
+    letter-spacing: 0.5em;
+    height: 150px;
+}
+
+
+.footer-center {
+    text-align: center;
+    background-color: white;
+}
+
+.footer-center h3{
+background-color: white;
+margin: 0;
+padding-top: 30px;
+}
+
+.footer-left {
+    text-align: center;
+    padding: 30px 0 30px 0;
+background-color: white;
+}
+

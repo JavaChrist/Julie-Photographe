@@ -1,0 +1,402 @@
+body {
+    background: white ;
+    height: 100vh; 
+    font-family: 'Pathway Gothic One', sans-serif;
+    margin: 0;
+}
+
+
+
+#logo-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+}
+
+/* Style logo */
+.logo {
+    width: 138px;
+    height: 138px;
+    font-weight: 500;
+    font-size: 1rem;
+        
+}
+
+.logo span{
+    position: absolute;
+    left: 90px;
+    transform-origin: 0 69px;
+    color: black;
+}
+
+.logo p {
+    position:relative;
+    left: 150px;
+    top: 25px;
+    transform: translate(-50%, 50%);
+   font-size: 1.5rem;
+   color: black;
+}
+
+/* Style navbar */
+
+nav {
+    position: fixed;
+    width: 600px; 
+    height: 100vh;
+    background: #e7d1c3; 
+    right: 0; 
+    top: 0; 
+    z-index: 1000;
+}
+
+
+
+/* Styles pour les éléments de liste dans la barre de navigation */
+#navbar li {
+    margin-right: 30px;
+}
+
+/* Styles pour le menu */
+.menu {
+    margin-top: 200px;
+    text-align: right; 
+    font-size: 26px; 
+    font-weight: 100;
+    margin-right: 50px;
+    position: relative;
+}
+
+.menu a {
+    position: relative;
+    display: inline-block;
+    color: inherit; /* Conserve la couleur du texte */
+    text-decoration: none; /* Supprime la décoration par défaut des liens */
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    top: 50%; /* Place le trait au milieu verticalement */
+    right: 0; /* Commence le trait à droite */
+    width: 0;
+    height: 2px; /* Épaisseur du trait */
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+    transform: translateY(-50%); 
+}
+
+.menu a:hover::after {
+    width: 30px;
+}
+
+.items {
+    position: relative;
+}
+
+/* Styles pour le trait */
+.trait {
+    position: absolute;
+    top: 50%; /* Ajustez cette valeur pour aligner verticalement */
+    right: -120px; /* Commence au bord droit de l'écran */
+    width: 40px;
+    height: 2px; /* Épaisseur du trait */
+    background-color: white;
+    transition: width 2s ease-in-out, right 1s ease-in-out;
+    z-index: 1000; /* Assurez-vous que le trait est au-dessus des autres éléments */
+}
+
+/* Animation pour le trait */
+.items:hover .trait {
+    right: -65px; /* Le trait se déplace vers la gauche */
+}
+
+/* Styles pour la sous-liste de la galerie */
+.sous-liste-galerie {
+    position: absolute;
+    left: -30px; 
+    top: 0;
+    width: 300px;
+    background: #e7d1c3;
+    display: none; 
+    z-index: 1000;
+}
+
+/* Styles pour la sous-liste des tarifs */
+.sous-liste-tarifs {
+    position: absolute;
+    left: -30px; 
+    top: 10px;
+    width: 300px;
+    background: #e7d1c3;
+    display: none; 
+    z-index: 1000; 
+}
+
+/* Affiche les sous-listes au survol des éléments de la liste ou des sous-listes elles-mêmes */
+    .items:hover .sous-liste-galerie,
+    .items:hover .sous-liste-tarifs, 
+    .sous-liste-galerie:hover,
+    .sous-liste-tarifs:hover { 
+    display: block;
+}
+
+/* Styles pour les éléments de texte de la liste */
+.txt-liste span {
+    cursor: pointer;
+}
+
+/* Styles pour les éléments de la liste */
+.liste-items {
+    padding: 15px 0; 
+    font-size: 20px; 
+} 
+
+/* Styles pour les listes non ordonnées */
+ul {
+    list-style-type: none;
+    color: white; 
+    position: relative;
+}
+
+
+a { 
+    text-decoration: none;
+    color: white;
+}
+
+/* Styles pour les icônes hamburger et de fermeture */
+.hamburger, .close {
+    position: fixed; 
+    top: 20px;
+    right: 30px; 
+    color: white;
+    font-size: 30px; 
+    padding: 20px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* Styles pour les icônes sociales */
+.social-icons {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly; 
+}
+
+/* Styles pour les liens à l'intérieur des icônes sociales */
+.social-icons a {
+    color: #fff; 
+    font-size: 15px; 
+    margin: 0 10px; 
+}
+
+main {
+    flex: 1;
+ height: auto;
+}
+
+.section-grossesse {
+    display: bloc;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    line-height: 2;
+    letter-spacing: 0.1em;
+}
+
+.section-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(95, 92, 91);
+    margin: 100px 0 70px 0;
+}
+
+.custom-hr {
+    border: none;
+    border-top: 1px solid rgb(95, 92, 91); 
+    margin: 30px 30px 100px 30px; 
+}
+
+.section-text {
+    margin: 20px 80px;
+    font-size: 15px;
+    text-align: center;
+    font-size: 100;
+    padding: 30px 20px;
+    line-height: 2;
+    letter-spacing: 0.1em;
+    padding: 0;
+    text-align: left;
+}
+/* Styles pour les images de la section grossesse */
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px; /* Espacement régulier entre les images */
+    padding: 25px 80px;
+}
+
+.image-container img {
+    width: 365px; /* Largeur fixe */
+    height: 547px; /* Hauteur fixe */
+    object-fit: cover; /* Maintient le ratio de l'image tout en remplissant l'espace */
+}
+
+.image-container .column {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Espacement régulier entre les images */
+}
+
+.image-container .column.center img {
+    margin-top: 50px; /* Décalage pour un plus beau visuel */
+}
+/* Style pour la partie bandeau de fin de la page */
+
+.section-actualite {
+    color: rgb(95, 92, 91);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    line-height: 2;
+    letter-spacing: 0.1em;
+    padding: 30px 0px;
+    margin-top: auto;
+}
+
+.photos-left, .photos-right {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+    gap: 10px;
+}
+
+.photos-left img, .photos-right img {
+    width: 165px;
+    height: 165px;
+    object-fit: cover; 
+}
+
+.text-center {
+    flex: 1;
+    text-align: center;
+    padding: 0 20px;
+}
+.custom-hr-fin {
+    border: none;
+    border-top: 1px solid rgb(95, 92, 91); 
+    margin: 0 30px ; 
+}
+
+/* Style pour le footer */
+
+footer {
+    color: rgb(95, 92, 91);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    line-height: 2;
+    letter-spacing: 0.5em;
+    height: 100px;
+    margin-top: auto; /* Pousse le footer vers le bas */
+    flex-direction: column;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.footer-center h3{
+    margin: 0;
+    padding-top: 30px;
+}
+
+.footer-left {
+    text-align: center;
+    padding: 30px 0 30px 0;
+}
+
+/* Lightbox styles */
+.lightbox {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none; /* Assurez-vous que le lightbox est caché par défaut */
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
